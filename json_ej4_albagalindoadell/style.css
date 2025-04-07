@@ -1,0 +1,212 @@
+/* ESTILOS GENERALES */
+
+/* Estilos sobre el contenedor de las tarjetas*/
+.products {
+    display: grid; 
+    grid-template-columns: 1fr; /* Una tarjeta por fila */
+    gap: 30px; 
+    padding: 20px; 
+    max-width: 1200px; 
+    margin: 0 auto; /* Centrar el contenedor horizontalmente */
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* ESTILOS PARA EL FILTRO DE CATEGORÍAS */
+
+/* Contenedor del filtro */
+.filter-container {
+    margin: 20px auto; 
+    text-align: center; 
+    position: relative; /* Posicionamiento relativo para el panel desplegable */
+}
+
+/* Botón para abrir el panel de categorías */
+#filter-button {
+    padding: 10px 20px; 
+    font-size: 1em; 
+    border: 1px solid #b5d3b0; 
+    border-radius: 8px; 
+    background-color: #eaf4e3; 
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    transition: background-color 0.2s; 
+}
+
+/* Cambiar el color de fondo del boton (hover) */
+#filter-button:hover {
+    background-color: #cde6c7;
+}
+
+/* Panel desplegable de categorías */
+#category-panel {
+    position: absolute; /* Posicionamiento absoluto relativo al contenedor */
+    top: 50px;
+    left: 50%; 
+    transform: translateX(-50%); /* Ajustar el centrado horizontal */
+    background-color: white; 
+    border: 1px solid #ddd; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    max-height: 200px; 
+    overflow-y: auto; /* Habilitar desplazamiento vertical si el contenido excede */
+    width: 80%; 
+    z-index: 10; /* Asegurar que el panel esté por encima de otros elementos */
+    display: flex; 
+    flex-direction: column;
+    padding: 10px;
+}
+
+/* Ocultar el panel cuando tiene la clase hidden*/
+#category-panel.hidden {
+    display: none; 
+}
+
+/* Botones dentro del panel de categorías */
+#category-panel button {
+    padding: 10px;
+    font-size: 1em; 
+    border: none;
+    background-color: transparent; 
+    text-align: left; 
+    cursor: pointer; 
+    transition: background-color 0.2s; 
+}
+
+/* Cambiar el color de fondo del boton del panel (hover) */
+#category-panel button:hover {
+    background-color: #f0f0f0; /* Fondo gris claro */
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* ESTILOS PARA LAS TARJETAS */
+
+/* Estilo general de las tarjetas */
+.card {
+    display: flex; 
+    align-items: center; 
+    background: #eaf4e3; 
+    border: 1px solid #b5d3b0;
+    border-radius: 12px; 
+    overflow: hidden; /* Ocultar contenido que exceda los bordes */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s; 
+    padding: 20px;
+    height: auto; /* Ajustar automáticamente según el contenido */
+    min-height: 300px;
+}
+
+/* Efecto al hacer hover sobre la tarjeta */
+.card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* FAVORITE BUTTON */
+
+/* Estilo del botón de favorito */
+.favorite {
+    margin-right: 25px; 
+    margin-bottom: 15px; 
+    background-color: #eaf4e3; 
+    border: none; 
+    border-radius: 50%; 
+    width: 50px; 
+    height: 50px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    cursor: pointer; 
+    font-size: 1.5em;
+    color: #6abf69;
+    transition: color 0.2s, transform 0.2s; 
+}
+
+/* Cambiar el color y escalar al hacer hover */
+.favorite:hover {
+    color: #4e9f4e;
+    transform: scale(1.1); 
+}
+
+/* Cambiar el color cuando el botón está activo */
+.favorite.active {
+    color: #2e7d32; 
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* ESTILOS PARA LA IMAGEN */
+
+/* Contenedor de la imagen */
+.card picture {
+    flex-shrink: 0; /* Evitar que el contenedor se reduzca */
+    width: 200px; 
+    height: 200px; 
+    overflow: hidden; 
+    border-radius: 8px; 
+    margin-right: 20px; 
+}
+
+/* Imagen dentro del contenedor */
+.card picture img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; /* Ajustar la imagen sin distorsión */
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* ESTILOS PARA LA SECCIÓN DE CONTENIDO */
+
+/* Contenedor del contenido de la tarjeta */
+.card-content {
+    flex-grow: 1; /* Permitir que el contenedor crezca para ocupar el espacio disponible */
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    height: 100%; 
+}
+
+/* Estilos del titulo h2 */
+.card-content h2 {
+    text-align: center; 
+    margin: 0; 
+    font-size: 1.8em; 
+    color: #2e7d32; 
+    font-weight: bold; 
+    margin-bottom: 10px; 
+}
+
+/* Estilos del parrafo p*/
+.card-content p {
+    margin: 0;
+    font-size: 1em; 
+    color: #4e9f4e; 
+    line-height: 1.6; 
+    text-align: start;
+}
+
+/* ------------------------------------------------------------------------------------------------ */
+
+/* ESTILOS PARA QUE LAS CARDS FUERAN RESPONSIVE */
+
+@media (max-width: 768px) {
+    .card {
+        flex-direction: column; 
+        align-items: flex-start; 
+        height: auto; 
+    }
+
+    .card picture {
+        width: 100%; 
+        height: auto; 
+        margin-right: 0; 
+        margin-bottom: 10px; 
+    }
+
+    .card-content {
+        align-items: flex-start;
+    }
+}
